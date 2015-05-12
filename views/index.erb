@@ -1,0 +1,18 @@
+<h1>Antique Store</h1>
+
+<h2>Products</h2>
+<ul>
+  <% @products.each() do |product| %>
+    <li><a href="/products/<%= product.id %>"><%= product.name %></a> - $<%= product.price %></li>
+  <% end %>
+</ul>
+<h3>Add a product</h3>
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="name">Product Name:</label>
+    <input name="name" id="name" type="text">
+    <label for="price">Price</label>
+    <input name="price" id="price" type="number">
+  </div>
+  <button type="submit" class="btn btn-success">Add Product</button>
+</form>

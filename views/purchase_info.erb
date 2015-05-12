@@ -1,0 +1,12 @@
+<% if @purchased_products.any?() %>
+  <h1>Your products:</h1>
+  <ul>
+    <% @purchased_products.each do |product|%>
+    <% @total = @total + product.price.to_f %>
+      <li><a href="/products/<%= product.id%>"><%= product.name %></a> <%= product.price %></li>
+    <% end %>
+  </ul>
+
+  <h1>Total</h1>
+  <%= @total %>
+<% end %>

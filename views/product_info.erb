@@ -1,0 +1,27 @@
+<h1>Product Info</h1>
+<h2><%= @product.name %></h2>
+<h2><%= @product.price %></h2>
+<h2><%= @product.purchase_id %></h2>
+<h3>update</h3>
+<form action="/products/<%= @product.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div class="form-group">
+    <label for="name">New Name:</label>
+    <input name="name" id="name" type="text">
+    <label for="price">New Price:</label>
+    <input name="price" id="price" type="number">
+  </div>
+  <button type="submit" class="btn-success">Update</button>
+</form>
+
+<form action="/products/<%= @product.id %>/return" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <button type="submit" class="btn-warning">return</button>
+</form>
+
+<form action="/products/<%= @product.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <div class="form-group">
+    <button type="submit" class="btn-danger">Delete</button>
+  </div>
+</form>

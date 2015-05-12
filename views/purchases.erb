@@ -1,0 +1,17 @@
+<h1>Your Shopping Cart</h1>
+
+<h2>Select the items you want to purchase:</h2>
+
+<% if @available_products.any?() %>
+  <form action="/purchases" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <% @available_products.each() do |product| %>
+    <div class="checkbox">
+      <label>
+      <input type="checkbox" name="product_ids[]" value="<%= product.id() %>"><%= product.name()%>
+    </label>
+  </div>
+  <% end %>
+  <button type="submit">Add to Shopping Cart</button>
+</form>
+<% end %>

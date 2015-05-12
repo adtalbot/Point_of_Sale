@@ -1,0 +1,13 @@
+<form action='/reports' method='post'>
+  <input type='date' name='start_date' id='start_date'>
+  <input type='date' name='end_date' id='end_date'>
+  <button type='submit'>submit</button>
+</form>
+
+<% if @purchases.any?() %>
+  <ul>
+    <% @purchases.each() do |purchase| %>
+    <li><a href='/purchases/<%= purchase.id %>'><%= purchase.created_at %></a></li>
+    <% end %>
+  </ul>
+<% end %>
