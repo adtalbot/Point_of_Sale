@@ -1,3 +1,3 @@
 class Product < ActiveRecord::Base
-  belongs_to(:purchase)
+  has_and_belongs_to_many(:purchases)
 end

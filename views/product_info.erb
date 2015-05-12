@@ -1,7 +1,6 @@
 <h1>Product Info</h1>
 <h2><%= @product.name %></h2>
 <h2><%= @product.price %></h2>
-<h2><%= @product.purchase_id %></h2>
 <h3>update</h3>
 <form action="/products/<%= @product.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
@@ -10,6 +9,13 @@
     <input name="name" id="name" type="text">
     <label for="price">New Price:</label>
     <input name="price" id="price" type="number">
+    <% @purchases.each() do |purchase| %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="purchase_ids[]" value="<%= purchase.id() %>"><%= purchase.id()%>
+      </label>
+    </div>
+    <% end %>
   </div>
   <button type="submit" class="btn-success">Update</button>
 </form>
